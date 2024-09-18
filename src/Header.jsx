@@ -68,6 +68,11 @@ const Header = ({
       },
       {
         type: 'item',
+        href: `${config.LMS_BASE_URL}/telemetry`,
+        content: intl.formatMessage(messages['header.user.menu.telemetry']),
+      },
+      {
+        type: 'item',
         href: `${config.ACCOUNT_PROFILE_URL}/u/${authenticatedUser.username}`,
         content: intl.formatMessage(messages['header.user.menu.profile']),
       },

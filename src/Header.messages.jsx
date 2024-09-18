@@ -26,6 +26,11 @@ const messages = defineMessages({
     defaultMessage: 'Dashboard',
     description: 'Link to the user dashboard',
   },
+  'header.user.menu.telemetry': {
+    id: 'header.user.menu.telemetry',
+    defaultMessage: 'Telemetry',
+    description: 'Link to the telemetry',
+  },
   'header.user.menu.profile': {
     id: 'header.user.menu.profile',
     defaultMessage: 'Profile',
