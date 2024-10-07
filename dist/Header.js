@@ -56,7 +56,7 @@ var Header = function Header(_ref) {
       content: intl.formatMessage(messages['header.user.menu.dashboard'])
     }, {
       type: 'item',
-      href: "".concat(config.LMS_BASE_URL, "/telemetry"),
+      href: "".concat(config.LMS_BASE_URL, "/demo/"),
       content: intl.formatMessage(messages['header.user.menu.telemetry'])
     }, {
       type: 'item',
