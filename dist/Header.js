@@ -54,11 +54,13 @@ var Header = function Header(_ref) {
       type: 'item',
       href: "".concat(config.LMS_BASE_URL, "/dashboard"),
       content: intl.formatMessage(messages['header.user.menu.dashboard'])
-    }, {
-      type: 'item',
-      href: "".concat(config.LMS_BASE_URL, "/demo/"),
-      content: intl.formatMessage(messages['header.user.menu.telemetry'])
-    }, {
+    },
+    // {
+    //   type: 'item',
+    //   href: `${config.LMS_BASE_URL}/demo/`,
+    //   content: intl.formatMessage(messages['header.user.menu.telemetry']),
+    // },
+    {
       type: 'item',
       href: "".concat(config.ACCOUNT_PROFILE_URL, "/u/").concat(authenticatedUser.username),
       content: intl.formatMessage(messages['header.user.menu.profile'])
