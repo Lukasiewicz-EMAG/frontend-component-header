@@ -66,15 +66,15 @@ const Header = ({
         href: `${config.LMS_BASE_URL}/dashboard`,
         content: intl.formatMessage(messages['header.user.menu.dashboard']),
       },
-      (authenticatedUser?.administrator ? [{
+      (authenticatedUser?.administrator ? {
         type: 'item',
         href: `${config.ACCOUNT_SETTINGS_URL.replace('account', 'demo')}`,
         content: intl.formatMessage(messages['header.user.menu.admin.telemetry']),
-      }] : [{
+      } : {
         type: 'item',
         href: `${config.ACCOUNT_SETTINGS_URL.replace('account', 'demo')}details?page=admin_inf&view=tasks`,
         content: intl.formatMessage(messages['header.user.menu.user.telemetry']),
-      }]),
+      }),
       {
         type: 'item',
         href: `${config.ACCOUNT_PROFILE_URL}/u/${authenticatedUser.username}`,
