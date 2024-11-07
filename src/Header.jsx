@@ -72,7 +72,7 @@ const Header = ({
         content: intl.formatMessage(messages['header.user.menu.admin.telemetry']),
       } : {
         type: 'item',
-        href: `${config.ACCOUNT_SETTINGS_URL.replace('account', 'demo')}details?page=admin_inf&view=tasks`,
+        href: `${config.ACCOUNT_SETTINGS_URL.replace('account', 'demo')}?page=inf`,
         content: intl.formatMessage(messages['header.user.menu.user.telemetry']),
       }),
       {
