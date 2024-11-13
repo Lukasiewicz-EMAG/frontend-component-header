@@ -66,15 +66,6 @@ const Header = ({
         href: `${config.LMS_BASE_URL}/dashboard`,
         content: intl.formatMessage(messages['header.user.menu.dashboard']),
       },
-      (authenticatedUser?.administrator ? {
-        type: 'item',
-        href: `${config.ACCOUNT_SETTINGS_URL.replace('account', 'demo')}`,
-        content: intl.formatMessage(messages['header.user.menu.admin.telemetry']),
-      } : {
-        type: 'item',
-        href: `${config.ACCOUNT_SETTINGS_URL.replace('account', 'demo')}?page=inf`,
-        content: intl.formatMessage(messages['header.user.menu.user.telemetry']),
-      }),
       {
         type: 'item',
         href: `${config.ACCOUNT_PROFILE_URL}/u/${authenticatedUser.username}`,
@@ -86,11 +77,21 @@ const Header = ({
         content: intl.formatMessage(messages['header.user.menu.account.settings']),
       },
       // Users should only see Order History if have a ORDER_HISTORY_URL define in the environment.
-      ...(config.ORDER_HISTORY_URL ? [{
+      // ...(config.ORDER_HISTORY_URL ? [{
+      //   type: 'item',
+      //   href: config.ORDER_HISTORY_URL,
+      //   content: intl.formatMessage(messages['header.user.menu.order.history']),
+      // }] : []),
+      {
         type: 'item',
-        href: config.ORDER_HISTORY_URL,
-        content: intl.formatMessage(messages['header.user.menu.order.history']),
-      }] : []),
+        href: `${config.ACCOUNT_SETTINGS_URL.replace('account', 'demo')}?page=inf`,
+        content: intl.formatMessage(messages['header.user.menu.user.telemetry']),
+      },
+      (authenticatedUser?.administrator ? {
+        type: 'item',
+        href: `${config.ACCOUNT_SETTINGS_URL.replace('account', 'demo')}`,
+        content: intl.formatMessage(messages['header.user.menu.admin.telemetry']),
+      } : {}),
       {
         type: 'item',
         href: config.LOGOUT_URL,

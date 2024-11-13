@@ -1,9 +1,3 @@
-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 import React, { useContext } from 'react';
 import Responsive from 'react-responsive';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
@@ -54,14 +48,6 @@ var Header = function Header(_ref) {
       type: 'item',
       href: "".concat(config.LMS_BASE_URL, "/dashboard"),
       content: intl.formatMessage(messages['header.user.menu.dashboard'])
-    }, authenticatedUser !== null && authenticatedUser !== void 0 && authenticatedUser.administrator ? {
-      type: 'item',
-      href: "".concat(config.ACCOUNT_SETTINGS_URL.replace('account', 'demo')),
-      content: intl.formatMessage(messages['header.user.menu.admin.telemetry'])
-    } : {
-      type: 'item',
-      href: "".concat(config.ACCOUNT_SETTINGS_URL.replace('account', 'demo'), "?page=inf"),
-      content: intl.formatMessage(messages['header.user.menu.user.telemetry'])
     }, {
       type: 'item',
       href: "".concat(config.ACCOUNT_PROFILE_URL, "/u/").concat(authenticatedUser.username),
@@ -70,15 +56,26 @@ var Header = function Header(_ref) {
       type: 'item',
       href: config.ACCOUNT_SETTINGS_URL,
       content: intl.formatMessage(messages['header.user.menu.account.settings'])
-    }].concat(_toConsumableArray(config.ORDER_HISTORY_URL ? [{
+    },
+    // Users should only see Order History if have a ORDER_HISTORY_URL define in the environment.
+    // ...(config.ORDER_HISTORY_URL ? [{
+    //   type: 'item',
+    //   href: config.ORDER_HISTORY_URL,
+    //   content: intl.formatMessage(messages['header.user.menu.order.history']),
+    // }] : []),
+    {
       type: 'item',
-      href: config.ORDER_HISTORY_URL,
-      content: intl.formatMessage(messages['header.user.menu.order.history'])
-    }] : []), [{
+      href: "".concat(config.ACCOUNT_SETTINGS_URL.replace('account', 'demo'), "?page=inf"),
+      content: intl.formatMessage(messages['header.user.menu.user.telemetry'])
+    }, authenticatedUser !== null && authenticatedUser !== void 0 && authenticatedUser.administrator ? {
+      type: 'item',
+      href: "".concat(config.ACCOUNT_SETTINGS_URL.replace('account', 'demo')),
+      content: intl.formatMessage(messages['header.user.menu.admin.telemetry'])
+    } : {}, {
       type: 'item',
       href: config.LOGOUT_URL,
       content: intl.formatMessage(messages['header.user.menu.logout'])
-    }])
+    }]
   }];
   var mainMenu = mainMenuItems || defaultMainMenu;
   var secondaryMenu = secondaryMenuItems || [];
