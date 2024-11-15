@@ -27,8 +27,8 @@ var messages = defineMessages({
   },
   'header.user.menu.admin.telemetry': {
     id: 'header.user.menu.admin.telemetry',
-    defaultMessage: 'Course Statistics Overview',
-    description: 'Course Statistics Overview'
+    defaultMessage: 'Summary of courses for teacher',
+    description: 'Summary of courses for teacher'
   },
   'header.user.menu.user.telemetry': {
     id: 'header.user.menu.user.telemetry',
