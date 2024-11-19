@@ -63,17 +63,15 @@ var Header = function Header(_ref) {
     //   href: config.ORDER_HISTORY_URL,
     //   content: intl.formatMessage(messages['header.user.menu.order.history']),
     // }] : []),
-    // {
-    //   type: 'item',
-    //   href: `${config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard')}?page=inf`,
-    //   content: intl.formatMessage(messages['header.user.menu.user.telemetry']),
-    // },
-    // (authenticatedUser?.administrator ? {
-    //   type: 'item',
-    //   href: `${config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard')}`,
-    //   content: intl.formatMessage(messages['header.user.menu.admin.telemetry']),
-    // } : {}),
     {
+      type: 'item',
+      href: "".concat(config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard'), "?page=inf"),
+      content: intl.formatMessage(messages['header.user.menu.user.telemetry'])
+    }, authenticatedUser !== null && authenticatedUser !== void 0 && authenticatedUser.administrator ? {
+      type: 'item',
+      href: "".concat(config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard')),
+      content: intl.formatMessage(messages['header.user.menu.admin.telemetry'])
+    } : {}, {
       type: 'item',
       href: config.LOGOUT_URL,
       content: intl.formatMessage(messages['header.user.menu.logout'])
