@@ -13,7 +13,7 @@ var AuthenticatedUserDropdown = function AuthenticatedUserDropdown(_ref) {
     href: "".concat(getConfig().LMS_BASE_URL, "/dashboard")
   }, intl.formatMessage(messages.dashboard));
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("a", {
-    className: "text-gray-700",
+    className: "btn-menu",
     href: "".concat(getConfig().SUPPORT_URL)
   }, intl.formatMessage(messages.help)), /*#__PURE__*/React.createElement(Dropdown, {
     className: "user-dropdown"
