@@ -26,6 +26,12 @@ ensureConfig([
 ], 'Header component');
 
 subscribe(APP_CONFIG_INITIALIZED, () => {
+
+  console.log("APP_CONFIG_INITIALIZED, AUTHN_MINIMAL_HEADER:")
+  console.log(process.env.AUTHN_MINIMAL_HEADER)
+  console.log("APP_CONFIG_INITIALIZED, SHOW_TELEMETRY_LINKS:")
+  console.log(process.env.SHOW_TELEMETRY_LINKS)
+
   mergeConfig({
     AUTHN_MINIMAL_HEADER: !!process.env.AUTHN_MINIMAL_HEADER,
     SHOW_TELEMETRY_LINKS: process.env.SHOW_TELEMETRY_LINKS,
