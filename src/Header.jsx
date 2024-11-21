@@ -28,6 +28,7 @@ ensureConfig([
 subscribe(APP_CONFIG_INITIALIZED, () => {
   mergeConfig({
     AUTHN_MINIMAL_HEADER: !!process.env.AUTHN_MINIMAL_HEADER,
+    SHOW_TELEMETRY_LINKS: process.env.SHOW_TELEMETRY_LINKS,
   }, 'Header additional config');
 });
 
@@ -51,12 +52,8 @@ const Header = ({
 }) => {
   const { authenticatedUser, config } = useContext(AppContext);
 
-  const showTelemetryLinks = process.env.SHOW_TELEMETRY_LINKS === 'true';
-
-  console.log('comp-header: showTelemetryLinks:');
-  console.log(showTelemetryLinks);
   console.log('process.env.SHOW_TELEMETRY_LINKS:');
-  console.log(process.env.SHOW_TELEMETRY_LINKS);
+  console.log(getConfig().SHOW_TELEMETRY_LINKS);
 
   const defaultMainMenu = [
     {
@@ -83,12 +80,12 @@ const Header = ({
         href: config.ACCOUNT_SETTINGS_URL,
         content: intl.formatMessage(messages['header.user.menu.account.settings']),
       },
-      (showTelemetryLinks ? {
+      (getConfig().SHOW_TELEMETRY_LINKS === 'true' ? {
         type: 'item',
         href: `${config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard')}?page=inf`,
         content: intl.formatMessage(messages['header.user.menu.user.telemetry']),
       } : {}),
-      (authenticatedUser?.administrator && showTelemetryLinks ? {
+      (authenticatedUser?.administrator && getConfig().SHOW_TELEMETRY_LINKS === 'true' ? {
         type: 'item',
         href: `${config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard')}`,
         content: intl.formatMessage(messages['header.user.menu.admin.telemetry']),
