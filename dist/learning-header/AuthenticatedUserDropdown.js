@@ -16,7 +16,7 @@ var AuthenticatedUserDropdown = function AuthenticatedUserDropdown(_ref) {
     className: "text-gray-700",
     href: "".concat(getConfig().SUPPORT_URL)
   }, intl.formatMessage(messages.help)), /*#__PURE__*/React.createElement(Dropdown, {
-    className: "user-dropdown ml-3"
+    className: "user-dropdown"
   }, /*#__PURE__*/React.createElement(Dropdown.Toggle, {
     variant: "outline-primary"
   }, /*#__PURE__*/React.createElement(FontAwesomeIcon, {
