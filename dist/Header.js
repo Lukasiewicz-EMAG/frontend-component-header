@@ -38,8 +38,8 @@ var Header = function Header(_ref) {
   var _useContext = useContext(AppContext),
     authenticatedUser = _useContext.authenticatedUser,
     config = _useContext.config;
-  console.log('process.env.SHOW_TELEMETRY_LINKS:');
-  console.log(getConfig().SHOW_TELEMETRY_LINKS);
+  console.log('config.SHOW_TELEMETRY_LINKS 1:');
+  console.log(config.SHOW_TELEMETRY_LINKS);
   var defaultMainMenu = [{
     type: 'item',
     href: "".concat(config.LMS_BASE_URL, "/dashboard"),

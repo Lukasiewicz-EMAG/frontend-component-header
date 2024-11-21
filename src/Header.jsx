@@ -52,8 +52,8 @@ const Header = ({
 }) => {
   const { authenticatedUser, config } = useContext(AppContext);
 
-  console.log('process.env.SHOW_TELEMETRY_LINKS:');
-  console.log(getConfig().SHOW_TELEMETRY_LINKS);
+  console.log('config.SHOW_TELEMETRY_LINKS 1:');
+  console.log(config.SHOW_TELEMETRY_LINKS);
 
   const defaultMainMenu = [
     {
