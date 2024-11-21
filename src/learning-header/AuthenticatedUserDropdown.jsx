@@ -19,7 +19,7 @@ const AuthenticatedUserDropdown = ({ intl, username }) => {
   return (
     <>
       <a className="text-gray-700" href={`${getConfig().SUPPORT_URL}`}>{intl.formatMessage(messages.help)}</a>
-      <Dropdown className="user-dropdown ml-3">
+      <Dropdown className="user-dropdown">
         <Dropdown.Toggle variant="outline-primary">
           <FontAwesomeIcon icon={faUserCircle} className="d-md-none" size="lg" />
           <span data-hj-suppress className="d-none d-md-inline">
