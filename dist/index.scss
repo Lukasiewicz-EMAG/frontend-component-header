@@ -4,6 +4,7 @@ $white: #fff;
 
 @import './Menu/menu.scss';
 @import './studio-header/StudioHeader.scss';
+@import './assets/styles/compass-variables';
 
 .dropdown-item a {
   text-decoration: none;
@@ -42,10 +43,12 @@ $white: #fff;
 
   .user-dropdown {
     .btn {
-      height: 3rem;
-      // @media (max-width: -1 + map-get($grid-breakpoints, "sm")) {
-      //   padding: 0 0.5rem;
-      // }
+      background-color: $c-auth-user-dropdown-bg-color;
+      transition: background-color $c-transition-time $c-transition-type;
+
+      &:hover {
+        background-color: darken($c-auth-user-dropdown-bg-color, 10%);
+      }
     }
   }
 }
@@ -126,5 +129,26 @@ $white: #fff;
   }
   .search-input {
     border-radius: $rounded-pill;
+  }
+}
+
+
+.header-container {
+  height: 65px;
+}
+
+
+.btn-menu {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: $c-main-gray;
+  border-bottom: 2px solid transparent;
+  padding: .5625rem 1rem;
+
+  &:hover {
+    text-decoration: none;
+    border-bottom: 2px solid $c-blue;
+    color: $c-dark;
   }
 }
