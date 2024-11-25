@@ -42,8 +42,7 @@ var DesktopHeader = /*#__PURE__*/function (_React$Component) {
         return menu;
       }
       var config = this.context.config;
-      console.log("DesktopHeader: config.SHOW_TELEMETRY_LINKS:");
-      console.log(config.SHOW_TELEMETRY_LINKS);
+      console.log("DesktopHeader: config.SHOW_TELEMETRY_LINKS:", config);
       return menu.map(function (menuItem) {
         var type = menuItem.type,
           href = menuItem.href,
