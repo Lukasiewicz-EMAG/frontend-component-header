@@ -24,6 +24,9 @@ class DesktopHeader extends React.Component {
     if (!Array.isArray(menu)) {
       return menu;
     }
+    const { config } = this.context;
+    console.log("DesktopHeader: config.SHOW_TELEMETRY_LINKS:")
+    console.log(config.SHOW_TELEMETRY_LINKS)
 
     return menu.map((menuItem) => {
       const {

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import DesktopHeader from './DesktopHeader';
 import MobileHeader from './MobileHeader';
 import messages from './Header.messages';
-ensureConfig(['LMS_BASE_URL', 'LOGOUT_URL', 'LOGIN_URL', 'SITE_NAME', 'LOGO_URL', 'ORDER_HISTORY_URL'], 'Header component');
+ensureConfig(['LMS_BASE_URL', 'LOGOUT_URL', 'LOGIN_URL', 'SITE_NAME', 'LOGO_URL', 'ORDER_HISTORY_URL', 'SHOW_TELEMETRY_LINKS'], 'Header component');
 subscribe(APP_CONFIG_INITIALIZED, function () {
   console.log("APP_CONFIG_INITIALIZED, AUTHN_MINIMAL_HEADER:");
   console.log(process.env.AUTHN_MINIMAL_HEADER);

@@ -24,6 +24,9 @@ class MobileHeader extends React.Component {
     if (!Array.isArray(menu)) {
       return menu;
     }
+    const { config } = this.context;
+    console.log("MobileHeader: config.SHOW_TELEMETRY_LINKS:")
+    console.log(config.SHOW_TELEMETRY_LINKS)
 
     return menu.map((menuItem) => {
       const {

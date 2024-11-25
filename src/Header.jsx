@@ -23,6 +23,7 @@ ensureConfig([
   'SITE_NAME',
   'LOGO_URL',
   'ORDER_HISTORY_URL',
+  'SHOW_TELEMETRY_LINKS',
 ], 'Header component');
 
 subscribe(APP_CONFIG_INITIALIZED, () => {
