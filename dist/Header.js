@@ -9,13 +9,10 @@ import MobileHeader from './MobileHeader';
 import messages from './Header.messages';
 ensureConfig(['LMS_BASE_URL', 'LOGOUT_URL', 'LOGIN_URL', 'SITE_NAME', 'LOGO_URL', 'ORDER_HISTORY_URL', 'SHOW_TELEMETRY_LINKS'], 'Header component');
 subscribe(APP_CONFIG_INITIALIZED, function () {
-  console.log("getConfig().AUTHN_MINIMAL_HEADER:");
-  console.log(getConfig().AUTHN_MINIMAL_HEADER);
   console.log("getConfig().SHOW_TELEMETRY_LINKS:");
   console.log(getConfig().SHOW_TELEMETRY_LINKS);
   mergeConfig({
-    AUTHN_MINIMAL_HEADER: !!process.env.AUTHN_MINIMAL_HEADER,
-    SHOW_TELEMETRY_LINKS: process.env.SHOW_TELEMETRY_LINKS
+    AUTHN_MINIMAL_HEADER: !!process.env.AUTHN_MINIMAL_HEADER
   }, 'Header additional config');
 });
 
@@ -42,8 +39,8 @@ var Header = function Header(_ref) {
   var _useContext = useContext(AppContext),
     authenticatedUser = _useContext.authenticatedUser,
     config = _useContext.config;
-  console.log('config.SHOW_TELEMETRY_LINKS 1:');
-  console.log(config.SHOW_TELEMETRY_LINKS);
+  console.log("getConfig().SHOW_TELEMETRY_LINKS 3:");
+  console.log(getConfig().SHOW_TELEMETRY_LINKS);
   var defaultMainMenu = [{
     type: 'item',
     href: "".concat(config.LMS_BASE_URL, "/dashboard"),
@@ -63,11 +60,11 @@ var Header = function Header(_ref) {
       type: 'item',
       href: config.ACCOUNT_SETTINGS_URL,
       content: intl.formatMessage(messages['header.user.menu.account.settings'])
-    }, getConfig().SHOW_TELEMETRY_LINKS === 'true' ? {
+    }, getConfig().SHOW_TELEMETRY_LINKS == 'true' ? {
       type: 'item',
       href: "".concat(config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard'), "?page=inf"),
       content: intl.formatMessage(messages['header.user.menu.user.telemetry'])
-    } : {}, authenticatedUser !== null && authenticatedUser !== void 0 && authenticatedUser.administrator && getConfig().SHOW_TELEMETRY_LINKS === 'true' ? {
+    } : {}, authenticatedUser !== null && authenticatedUser !== void 0 && authenticatedUser.administrator && getConfig().SHOW_TELEMETRY_LINKS == 'true' ? {
       type: 'item',
       href: "".concat(config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard')),
       content: intl.formatMessage(messages['header.user.menu.admin.telemetry'])
