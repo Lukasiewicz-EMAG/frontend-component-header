@@ -56,18 +56,11 @@ var Header = function Header(_ref) {
       type: 'item',
       href: config.ACCOUNT_SETTINGS_URL,
       content: intl.formatMessage(messages['header.user.menu.account.settings'])
-    },
-    // Users should only see Order History if have a ORDER_HISTORY_URL define in the environment.
-    // ...(config.ORDER_HISTORY_URL ? [{
-    //   type: 'item',
-    //   href: config.ORDER_HISTORY_URL,
-    //   content: intl.formatMessage(messages['header.user.menu.order.history']),
-    // }] : []),
-    {
+    }, getConfig().SHOW_TELEMETRY_LINKS == 'true' ? {
       type: 'item',
       href: "".concat(config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard'), "?page=inf"),
       content: intl.formatMessage(messages['header.user.menu.user.telemetry'])
-    }, authenticatedUser !== null && authenticatedUser !== void 0 && authenticatedUser.administrator ? {
+    } : {}, authenticatedUser !== null && authenticatedUser !== void 0 && authenticatedUser.administrator && getConfig().SHOW_TELEMETRY_LINKS == 'true' ? {
       type: 'item',
       href: "".concat(config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard')),
       content: intl.formatMessage(messages['header.user.menu.admin.telemetry'])
