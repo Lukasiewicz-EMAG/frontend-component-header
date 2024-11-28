@@ -78,12 +78,12 @@ const Header = ({
       },
       (getConfig().SHOW_TELEMETRY_LINKS == 'true' ? {
         type: 'item',
-        href: `${config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard')}?page=inf`,
+        href: `${config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard')}?page=student&view=general`,
         content: intl.formatMessage(messages['header.user.menu.user.telemetry']),
       } : {}),
       (authenticatedUser?.administrator && getConfig().SHOW_TELEMETRY_LINKS == 'true' ? {
         type: 'item',
-        href: `${config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard')}`,
+        href: `${config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard')}?page=admin&view=general`,
         content: intl.formatMessage(messages['header.user.menu.admin.telemetry']),
       } : {}),
       {

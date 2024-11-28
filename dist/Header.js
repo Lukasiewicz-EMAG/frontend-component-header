@@ -58,11 +58,11 @@ var Header = function Header(_ref) {
       content: intl.formatMessage(messages['header.user.menu.account.settings'])
     }, getConfig().SHOW_TELEMETRY_LINKS == 'true' ? {
       type: 'item',
-      href: "".concat(config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard'), "?page=inf"),
+      href: "".concat(config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard'), "?page=student&view=general"),
       content: intl.formatMessage(messages['header.user.menu.user.telemetry'])
     } : {}, authenticatedUser !== null && authenticatedUser !== void 0 && authenticatedUser.administrator && getConfig().SHOW_TELEMETRY_LINKS == 'true' ? {
       type: 'item',
-      href: "".concat(config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard')),
+      href: "".concat(config.ACCOUNT_SETTINGS_URL.replace('account', 'dashboard'), "?page=admin&view=general"),
       content: intl.formatMessage(messages['header.user.menu.admin.telemetry'])
     } : {}, {
       type: 'item',
