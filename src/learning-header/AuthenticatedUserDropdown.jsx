@@ -5,11 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { getConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
+import { AppContext } from '@edx/frontend-platform/react';
 import { Dropdown } from '@openedx/paragon';
 
 import messages from './messages';
 
 const AuthenticatedUserDropdown = ({ intl, username }) => {
+  const { authenticatedUser } = useContext(AppContext);
+
   const dashboardMenuItem = (
     <Dropdown.Item href={`${getConfig().LMS_BASE_URL}/dashboard`}>
       {intl.formatMessage(messages.dashboard)}
@@ -35,6 +38,16 @@ const AuthenticatedUserDropdown = ({ intl, username }) => {
           <Dropdown.Item href={getConfig().ACCOUNT_SETTINGS_URL}>
             {intl.formatMessage(messages.account)}
           </Dropdown.Item>
+          {getConfig().SHOW_TELEMETRY_LINKS_STUDENT == 'true' && (
+            <Dropdown.Item href={`${getConfig().ACCOUNT_SETTINGS_URL.replace('account', 'dashboard')}?page=student&view=general`}>
+              {intl.formatMessage(messages.telemetryUser)}
+            </Dropdown.Item>
+          )}
+          {authenticatedUser?.administrator && getConfig().SHOW_TELEMETRY_LINKS_ADMIN == 'true' && (
+            <Dropdown.Item href={`${getConfig().ACCOUNT_SETTINGS_URL.replace('account', 'dashboard')}?page=admin&view=general`}>
+              {intl.formatMessage(messages.telemetryAdmin)}
+            </Dropdown.Item>
+          )}
           { getConfig().ORDER_HISTORY_URL && (
             <Dropdown.Item href={getConfig().ORDER_HISTORY_URL}>
               {intl.formatMessage(messages.orderHistory)}

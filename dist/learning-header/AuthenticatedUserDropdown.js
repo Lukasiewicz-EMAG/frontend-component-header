@@ -4,11 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { getConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
+import { AppContext } from '@edx/frontend-platform/react';
 import { Dropdown } from '@openedx/paragon';
 import messages from './messages';
 var AuthenticatedUserDropdown = function AuthenticatedUserDropdown(_ref) {
   var intl = _ref.intl,
     username = _ref.username;
+  var _useContext = useContext(AppContext),
+    authenticatedUser = _useContext.authenticatedUser;
   var dashboardMenuItem = /*#__PURE__*/React.createElement(Dropdown.Item, {
     href: "".concat(getConfig().LMS_BASE_URL, "/dashboard")
   }, intl.formatMessage(messages.dashboard));
@@ -32,7 +35,11 @@ var AuthenticatedUserDropdown = function AuthenticatedUserDropdown(_ref) {
     href: "".concat(getConfig().ACCOUNT_PROFILE_URL, "/u/").concat(username)
   }, intl.formatMessage(messages.profile)), /*#__PURE__*/React.createElement(Dropdown.Item, {
     href: getConfig().ACCOUNT_SETTINGS_URL
-  }, intl.formatMessage(messages.account)), getConfig().ORDER_HISTORY_URL && /*#__PURE__*/React.createElement(Dropdown.Item, {
+  }, intl.formatMessage(messages.account)), getConfig().SHOW_TELEMETRY_LINKS_STUDENT == 'true' && /*#__PURE__*/React.createElement(Dropdown.Item, {
+    href: "".concat(getConfig().ACCOUNT_SETTINGS_URL.replace('account', 'dashboard'), "?page=student&view=general")
+  }, intl.formatMessage(messages.telemetryUser)), (authenticatedUser === null || authenticatedUser === void 0 ? void 0 : authenticatedUser.administrator) && getConfig().SHOW_TELEMETRY_LINKS_ADMIN == 'true' && /*#__PURE__*/React.createElement(Dropdown.Item, {
+    href: "".concat(getConfig().ACCOUNT_SETTINGS_URL.replace('account', 'dashboard'), "?page=admin&view=general")
+  }, intl.formatMessage(messages.telemetryAdmin)), getConfig().ORDER_HISTORY_URL && /*#__PURE__*/React.createElement(Dropdown.Item, {
     href: getConfig().ORDER_HISTORY_URL
   }, intl.formatMessage(messages.orderHistory)), /*#__PURE__*/React.createElement(Dropdown.Item, {
     href: getConfig().LOGOUT_URL
