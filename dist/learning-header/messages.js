@@ -26,12 +26,12 @@ var messages = defineMessages({
     description: 'The text for the user menu Order History navigation link.'
   },
   telemetryUser: {
-    id: 'header.menu.telemetryUser.label',
+    id: 'header.user.menu.user.telemetry',
     defaultMessage: 'My Course Statistics',
     description: 'The text for the user menu My Course Statistics navigation link.'
   },
   telemetryAdmin: {
-    id: 'header.menu.telemetryAdmin.label',
+    id: 'header.user.menu.admin.telemetry',
     defaultMessage: 'Summary of courses for teacher',
     description: 'The text for the user menu Summary of courses for teacher navigation link.'
   },
