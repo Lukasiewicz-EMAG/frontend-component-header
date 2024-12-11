@@ -12,7 +12,7 @@ var AuthenticatedUserDropdown = function AuthenticatedUserDropdown(_ref) {
   var dashboardMenuItem = /*#__PURE__*/React.createElement(Dropdown.Item, {
     href: "".concat(getConfig().LMS_BASE_URL, "/dashboard")
   }, intl.formatMessage(messages.dashboard));
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("a", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, console.log('learning header'), /*#__PURE__*/React.createElement("a", {
     className: "btn-menu",
     href: "".concat(getConfig().SUPPORT_URL)
   }, intl.formatMessage(messages.help)), /*#__PURE__*/React.createElement(Dropdown, {
