@@ -21,7 +21,6 @@ const AuthenticatedUserDropdown = ({ intl, username }) => {
 
   return (
     <>
-      { console.log('learning header') }
       <a className="btn-menu" href={`${getConfig().SUPPORT_URL}`}>{intl.formatMessage(messages.help)}</a>
       <Dropdown className="user-dropdown">
         <Dropdown.Toggle variant="outline-primary">

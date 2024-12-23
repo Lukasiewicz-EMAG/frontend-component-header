@@ -126,7 +126,6 @@ const Header = ({
 
   return (
     <>
-      { console.log('default header') }
       <Responsive maxWidth={769}>
         <MobileHeader {...props} />
       </Responsive>

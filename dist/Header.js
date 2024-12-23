@@ -94,7 +94,7 @@ var Header = function Header(_ref) {
     userMenu: getConfig().AUTHN_MINIMAL_HEADER ? [] : userMenu,
     loggedOutItems: getConfig().AUTHN_MINIMAL_HEADER ? [] : loggedOutItems
   };
-  return /*#__PURE__*/React.createElement(React.Fragment, null, console.log('default header'), /*#__PURE__*/React.createElement(Responsive, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Responsive, {
     maxWidth: 769
   }, /*#__PURE__*/React.createElement(MobileHeader, props)), /*#__PURE__*/React.createElement(Responsive, {
     minWidth: 769
